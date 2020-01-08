@@ -1,0 +1,67 @@
+    """
+    Comment ça fonctionne ? On reçoit un paramètre path.
+    
+    Il nous indique le niveau qu'on a sélectionne dans la fenêtre
+    
+    On fait une boucle de lecture avec with open
+    
+    Cette instruction nous permet de ne pas utiliser
+    à la fin une instruction pour terminer la lecture du fichier
+    
+    # filin est une variable qui fonctionne comme un fichier
+    
+    #On va lire la première 
+    
+    Ensuite on va faire une boucle à l'intérieur de la boucle de lecture 
+    pour remplir les différentes listes.
+    
+    A l'intérieur de chaque if on va appeler 
+    
+    Code: 
+    """
+    vide:list = []
+
+
+    with open(path,"r") as filin:
+
+        x:int = X_PREMIERE_CASE
+        y:int = Y_PREMIERE_CASE
+        cpt_x: int = 0
+        cpt_y: int = 0
+
+        for ligne in filin:
+
+            ligne.strip('\n')
+
+            y = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_y*32
+
+            for i in ligne:
+                if i == '#':
+                    x = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_x*32
+                    murs.append(creer_mur(x,y))
+                    cpt_x += 1
+                elif i == '-':
+                    x = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_x*32
+                    vide.append(creer_case_vide(x,y))
+                    cpt_x += 1
+                elif i == '.':
+                    x = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_x*32
+                    cibles.append(creer_cible(x,y))
+                    cpt_x += 1
+                elif i == '$':
+                    x = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_x*32
+                    caisses.append(creer_caisse(x,y))
+                    cpt_x += 1
+                elif i == '@':
+                    print(i)
+                    x = 20 + (DISTANCE_ENTRE_CASE/2) + cpt_x*32
+                    joueur.append(creer_personnage(x,y))
+                    cpt_x += 1
+
+            cpt_x = 0
+            cpt_y += 1
+    """
+    Problèmes rencontrés:
+        Le personne apparaît plusieurs fois. Il ne faut pas utiliser d'else pour imprimer le personnage.
+        On utilise un elif à la place.
+    """
