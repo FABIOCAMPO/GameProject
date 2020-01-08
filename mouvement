@@ -1,23 +1,26 @@
 
     if direction == "haut":
-        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0] - 32))
-        coordonnee_case_suivante = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0] - 64))
+        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0]) - 32)
+        coordonnee_casesuivante = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0]) - 64)
 
     elif direction == "droite":
-        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0] + 32), coordonnee_y(joueur[0]))
-        coordonnee_case_suivante = creer_case_vide(coordonnee_x(joueur[0] + 64), coordonnee_y(joueur[0]))
+        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]) + 32, coordonnee_y(joueur[0]))
+        coordonnee_casesuivante = creer_case_vide(coordonnee_x(joueur[0]) + 64, coordonnee_y(joueur[0]))
 
     elif direction == "gauche":
-        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0] - 32), coordonnee_y(joueur[0]))
-        coordonnee_case_suivante = creer_case_vide(coordonnee_x(joueur[0] - 64), coordonnee_y(joueur[0]))
+        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]) - 32, coordonnee_y(joueur[0]))
+        coordonnee_casesuivante = creer_case_vide(coordonnee_x(joueur[0]) - 64, coordonnee_y(joueur[0]))
 
     elif direction == "bas":
-        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0] + 32))
-        coordonnee_case_suivante = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0] + 64))
+        coordonnee_destination = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0]) + 32)
+        coordonnee_casesuivante = creer_case_vide(coordonnee_x(joueur[0]), coordonnee_y(joueur[0]) + 64)
 
     ancienne_caisse = coordonnee_destination
-    
+
     deplace_joueur_y = coordonnee_y(coordonnee_destination)
-    deplace_joueur_y = coordonnee_y(coordonnee_destination)
-    deplace_caisse_x = coordonnee_x(coordonnee_case_suivante)
-    deplace_caisse_x = coordonnee_y(coordonnee_case_suivante)
+    deplace_joueur_x = coordonnee_x(coordonnee_destination)
+    deplace_caisse_x = coordonnee_x(coordonnee_casesuivante)
+    deplace_caisse_y = coordonnee_y(coordonnee_casesuivante)
+
+    effectuer_mouvement(coordonnee_destination,coordonnee_casesuivante,ancienne_caisse, caisses, murs, joueur, can,
+                        deplace_caisse_x, deplace_caisse_y, deplace_joueur_x, deplace_joueur_y, liste_image)
