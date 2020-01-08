@@ -1,0 +1,7 @@
+    """
+        for i in caisses:
+        for j in cibles:
+            if est_egal_a(caisses[i],cibles[j]) == False:
+                return False
+    return True
+    """
