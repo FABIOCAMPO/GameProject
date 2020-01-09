@@ -9,5 +9,5 @@
         caisses.remove(ancienne_caisse)
         creer_image(can, coordonnee_x(joueur[0]), coordonnee_y(joueur[0]), liste_image[6])  # a ne pas bouger car est la position pour definir l'image qui remplace le joueur qui a bouger
         joueur.remove(joueur[0]) # mnt on peut le supprimer
-    else:
+    else:   # dans tout les autres cas
         pass
