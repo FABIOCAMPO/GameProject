@@ -1,3 +1,5 @@
+    vide: list = []
+    
     with open(path, "r") as filin:
 
         x: int = X_PREMIERE_CASE
