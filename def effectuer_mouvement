@@ -1,4 +1,4 @@
-    if coordonnee_destination not in caisses and coordonnee_destination not in murs: # si mon joueur bouge
+    if coordonnee_destination not in caisses and coordonnee_destination not in murs:   # si mon joueur bouge
         creer_image(can, coordonnee_x(joueur[0]), coordonnee_y(joueur[0]), liste_image[6])
         joueur.append(creer_personnage(deplace_joueur_x, deplace_joueur_y))
         joueur.remove(joueur[0])
@@ -8,6 +8,7 @@
         joueur.append(creer_personnage(deplace_joueur_x, deplace_joueur_y))
         caisses.remove(ancienne_caisse)
         creer_image(can, coordonnee_x(joueur[0]), coordonnee_y(joueur[0]), liste_image[6])  # a ne pas bouger car est la position pour definir l'image qui remplace le joueur qui a bouger
-        joueur.remove(joueur[0]) # mnt on peut le supprimer
-    else:   # dans tout les autres cas
+        joueur.remove(joueur[0])  # mnt on peut le supprimer
+
+    else:  # dans tout les autres cas
         pass
