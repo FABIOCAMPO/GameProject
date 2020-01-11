@@ -1,9 +1,13 @@
+    list_scores: list
+    niveau: list
+
     with open(scores_file_path, 'r') as filin:
 
         for ligne in filin:
-            ligne = ligne.strip()
-            numero, liste_scores = ligne.split(";", maxsplit=1)
-            liste_temp: list = []
-            for i in range(1, len(liste_scores) - 1):
-                liste_temp.append(liste_scores[i])
-            dict_scores[numero] = liste_temp
+            ligne = ligne.strip()  # on enlève les espaces ?
+            niveau, liste_scores = ligne.split(";", maxsplit=1)  # on sépare le numéro du niveau du reste des scores
+
+            liste_temporaire: list = []  # on crée une liste temporaire pour créé une liste de scores pour chaque niveau
+            for scores in range(len(liste_scores)):  # on a déjà enlevé les numéro des niveaux donc on fait une boucle pour/
+                liste_temporaire.append(liste_scores[scores])   # ajouter à la liste temporaire tous les scores
+            dict_scores[niveau] = liste_temporaire  # c'est comme ça qu'on créé un dictionnaire ??
