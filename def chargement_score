@@ -1,0 +1,10 @@
+
+
+    with open(scores_file_path, 'r') as scores:
+        for ligne in scores:
+            ligne = ligne.strip()
+            level, liste_scores = ligne.split(";", maxsplit=1)
+            dict_scores[int(level)] = []
+        for liste_scores in liste_scores.split(";"):
+            if len(liste_scores) > 0:
+                dict_scores[int(level)].append[int(scores)]
