@@ -1,5 +1,5 @@
     vide: list = []
-    
+
     with open(path, "r") as filin:
 
         x: int = X_PREMIERE_CASE
@@ -18,13 +18,13 @@
                     x = X_PREMIERE_CASE + (DISTANCE_ENTRE_CASE / 2) + cpt_x * DISTANCE_ENTRE_CASE
                     murs.append(creer_mur(x, y))
                     cpt_x += 1
-                elif i == '.':
-                    x = X_PREMIERE_CASE + (DISTANCE_ENTRE_CASE / 2) + cpt_x * DISTANCE_ENTRE_CASE
-                    cibles.append(creer_cible(x, y))
-                    cpt_x += 1
                 elif i == '-':
                     x = X_PREMIERE_CASE + (DISTANCE_ENTRE_CASE / 2) + cpt_x * DISTANCE_ENTRE_CASE
                     vide.append(creer_case_vide(x, y))
+                    cpt_x += 1
+                elif i == '.':
+                    x = X_PREMIERE_CASE + (DISTANCE_ENTRE_CASE / 2) + cpt_x * DISTANCE_ENTRE_CASE
+                    cibles.append(creer_cible(x, y))
                     cpt_x += 1
                 elif i == '$':
                     x = X_PREMIERE_CASE + (DISTANCE_ENTRE_CASE / 2) + cpt_x * DISTANCE_ENTRE_CASE
