@@ -9,3 +9,17 @@
 
     if cpt == len(caisses):
         return True
+        
+        
+        
+        
+        
+        
+Ancien code:
+
+    for caisse in caisses:
+        for cible in cibles:
+            if not est_egal_a(caisse, cible):
+                return False
+    return True
+
