@@ -1,5 +1,11 @@
-    for caisse in caisses:
-        for cible in cibles:
-            if not est_egal_a(caisse, cible):
-                return False
-    return True
+    cpt: int = 0
+    for n in range(len(caisses)):
+        for i in caisses:
+            for j in cibles:
+                if not est_egal_a(i, j):
+                    return False
+                else:
+                    cpt += 1
+
+    if cpt == len(caisses):
+        return True
