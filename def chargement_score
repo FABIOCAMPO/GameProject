@@ -36,3 +36,23 @@
                     lista_scores.append(int(i))
                     dict_scores[int(level)] = lista_scores
     print(dict_scores)
+
+
+
+
+LAURA:
+
+    with open(scores_file_path, "r") as filin:
+        for ligne in filin:
+            lista_scores: list = []
+            lista = ligne.split(';')
+            dernier_input = len(lista) - 1
+            lista.pop(dernier_input)
+
+            level = lista[0]
+            if level != '':
+                del(lista[0])
+                for i in lista:
+                    lista_scores.append(int(i))
+                    dict_scores[int(level)] = lista_scores
+    print(dict_scores)
