@@ -2,12 +2,12 @@
     
     new_score = int(score_base - (time.time() - temps_initial) - (nb_coups * val_coup))
     temporary_list = dict_scores[niveau_en_cours]
-    indexNewScore: int = 0
+    index_new_score: int = 0
     for i in range(len(temporary_list), 0, -1):
         if i > temporary_list[i]:
-            a = i
+            index_new_score = i
         else:
-            a = -1
-    if indexNewScore != -1:
+            index_new_score = -1
+    if index_new_score != -1:
         temporary_list[a] = new_score
     dict_scores[niveau_en_cours] = temporary_list
