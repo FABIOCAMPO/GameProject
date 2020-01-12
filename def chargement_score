@@ -20,3 +20,19 @@
                 liste_temporaire.append(liste_scores[scores])   # ajouter à la liste temporaire tous les scores
             dict_scores[niveau] = liste_temporaire  # c'est comme ça qu'on créé un dictionnaire ??
     print(dict_scores)
+
+
+    ON Y CROIT BORDEL DE MERDE !
+
+    with open(scores_file_path, "r") as filin:
+        for ligne in filin:
+            lista_scores: list = []
+            lista = ligne.split(';')
+            lista[len(lista)-1] = lista[len(lista)-1].strip("\n")
+            level = lista[0]
+            if level != '':
+                del(lista[0])
+                for i in lista:
+                    lista_scores.append(int(i))
+                    dict_scores[int(level)] = lista_scores
+    print(dict_scores)
