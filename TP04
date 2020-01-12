@@ -1,0 +1,114 @@
+
+import os
+import sys
+from os import listdir
+
+
+
+### Fonctions ###
+
+def main(path):
+    mots: str = getInput()
+    while isPlaying(mots):
+        print(mots.split(" "))
+
+        for i in (listdir(sys.argv[1])):
+            sumFrequency: int = 0
+            dictionnaire_texte = iterateFilesInPath(path,i)
+
+            for j in mots:
+                if isInText(dictionnaire_texte,j):
+                    sumFrequency += getWordsInFile(dictionnaire_texte, j)
+
+            proximite = sumFrequency / getNumberWordsText(dictionnaire_texte)
+            display(proximite, i)
+
+        mots = getInput()
+    print('end of process')
+
+
+def iterateFilesInPath(path,file:str)->dict:
+    """
+    Fonction générant un dictionnaire pour un texte
+    :param path: le chemin pour accéder au répertoire où se trouve le texte
+    :param file: indique quel texte on désire place dans un dictionnaire
+    :return: retournes le dictionnaire avec le nombre de fois qu'un mot se trouve dans le texte
+    """
+
+    with open(path + file, "r") as content:
+        print(content.readlines())
+        a = content.readlines()
+        print(type(a))
+        listaTry
+
+        content.close()
+
+
+def getInput()->str:
+    """
+    :return: retournes le texte saisie par l'utilisateur
+    """
+    return input('Entrez les mots que vous recherchez :')
+
+
+def isPlaying(mots:str)->bool:
+    """
+    :param mots: texte saisie par l'utilisateur
+    :return: si l'utilisateur a saisie uniquement 'Enter', False, sinon True
+    """
+    if mots == '':
+        return False
+    else:
+        return True
+
+
+def isInText(dictionnaire_texte: dict, mot:str)->bool:
+    """
+    Fonction vérifiant que le mot se trouve dans le texte
+    :param dictionnaire_texte: dictionnaire d'un texte
+    :param mot: mot à chercher
+    :return: retournes True si le mot se trouve dans le texte, sinon False
+    """
+    for cle in dictionnaire_texte.keys():
+        if mot == cle:
+            return True
+
+
+def getWordsInFile(dictionnaire_texte: dict, mot:str )->int:
+    """
+    Fonction récuperant dans un dictionnaire le nombre de fois qu'un mot apparaît dans un texte
+    :param dictionnaire_texte: dictionnaire d'un texte
+    :return: retournes le nombre de fois que le mot apparaît dans le texte
+    """
+    return dictionnaire_texte[mot]
+
+
+def getNumberWordsText(dictionnaire_texte : dict)->int:
+    """
+    Fonction permettant de calculer le nombre de mots dans un texte
+    :param dictionnaire_texte: dictionnaire d'un texte
+    :return: retournes le nombre de mots dans un texte
+    """
+    somme: int = 0
+    for values in dictionnaire_texte.values():
+        somme += values
+    return somme
+
+
+def display(proximite:float, numberText:int):
+    """
+    Fonction affichant la proximité des mots saisies par rapport à un texte
+    :param proximite: la distance de similiraté entre le texte et ce que l'utilisateur a saisit
+    :param numberText: indique de quel texte il s'agit
+    :return:
+    """
+    print("Ce qui fait une proximité de %2.f au texte \'%s\'" %(proximite, numberText))
+
+
+### Déclaration et Initialisation des variables ###
+liste_dictionnaire: list = [] ### chaque dictionnaire dans cette liste représente un texte et les mots qui s'y trouvent
+                                ### ainsi que leur fréquence à chacun
+
+
+### Programme Principal ###
+main(sys.argv[1])
