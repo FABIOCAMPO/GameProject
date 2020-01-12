@@ -1,6 +1,9 @@
+    chain_scores: str = ''
     with open(scores_file_path,"w") as filout:
 
         for cle, values in dict_scores.items():
-            chain_scores: str = ";".join(values)
+            for i in values:
+                chain_scores += str(i)
             chain_niveau: str = str(cle) + ";" + chain_scores
             filout.write("{}\n".format(chain_niveau))
+            chain_scores = ''
