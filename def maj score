@@ -1,0 +1,10 @@
+    I didn't pay attention to the light in the dark !!!!!!!! PAM PAM Sam Smith l'homme à la voix d'ange
+
+    aff_score = ""
+    for cle, valeur in dict_scores.items():
+        niveau_en_cours = cle
+        aff_score = "Niveau " + str(niveau_en_cours) + '\n'
+        for i in valeur:
+            aff_score = aff_score + str(i) + '\n'
+
+    return aff_score
