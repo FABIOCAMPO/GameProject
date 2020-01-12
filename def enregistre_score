@@ -7,5 +7,5 @@
         if i > temporary_list[i]:
             index_new_score = i
     if index_new_score != -1:
-        temporary_list[a] = new_score
+        temporary_list[index_new_score] = new_score
     dict_scores[niveau_en_cours] = temporary_list
