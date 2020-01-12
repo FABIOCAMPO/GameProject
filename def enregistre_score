@@ -1,10 +1,8 @@
     temporaryList = dict_scores[niveau_en_cours]
-    a: int = 0
+    a: int = -1
     for i in range(len(temporaryList), 0, -1):
         if i > temporaryList[i]:
             a = i
-        else:
-            a = -1
     if a != -1:
         temporaryList[a] = newScore
     dict_scores[niveau_en_cours] = temporaryList
